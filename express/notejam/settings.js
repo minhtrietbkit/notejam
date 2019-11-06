@@ -1,17 +1,26 @@
 var settings = {
   development: {
-    db: "notejam.db",
-    dsn: "sqlite://notejam.db"
+    db: {
+      host: "127.0.0.1",
+      user: "user",
+      password: "abc12345",
+      database: "nodejam"
+    },
+    dsn: "mysql://user:abc12345@127.0.0.1/nodejam"
   },
   test: {
-    db: "notejam_test.db",
-    dsn: "sqlite://notejam_test.db"
+    db: {
+      host: "127.0.0.1",
+      user: "user",
+      password: "abc12345",
+      database: "nodejam"
+    },
+    dsn: "mysql://user:abc12345@127.0.0.1/nodejam"
   }
 };
 
-
-var env = process.env.NODE_ENV
+var env = process.env.NODE_ENV;
 if (!env) {
-  env = 'development'
-};
+  env = "development";
+}
 module.exports = settings[env];
